@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio – Ariel Yehouda SEA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            starbucks: '#00754a',
+            lightgreen: '#d4e9e2',
+            darktext: '#1e3932',
+            beige: '#f3f1e7',
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: 0, transform: 'translateY(20px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' },
+            },
+            pulseScale: {
+              '0%, 100%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.05)' },
+            },
+            zoomRotate: {
+              '0%': { transform: 'scale(1) rotate(0deg)' },
+              '100%': { transform: 'scale(1.05) rotate(2deg)' },
+            },
+            bounceIcon: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-5px)' },
+            },
+            fadeInUpSlow: {
+              '0%': { opacity: 0, transform: 'translateY(40px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' },
+            },
+          },
+          animation: {
+            fadeInUp: 'fadeInUp 0.8s ease forwards',
+            pulseScale: 'pulseScale 1.5s ease-in-out infinite',
+            zoomRotate: 'zoomRotate 0.4s ease forwards',
+            bounceIcon: 'bounceIcon 2s ease-in-out infinite',
+            fadeInUpSlow: 'fadeInUpSlow 1.2s ease forwards',
+          },
+        },
+      },
+    };
+  </script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+<body class="bg-lightgreen text-darktext font-sans">
+
+  <!-- Navigation mobile -->
+  <header class="bg-starbucks text-white fixed top-0 left-0 right-0 z-30 md:hidden flex justify-between items-center p-4 shadow-lg">
+    <h1 class="text-xl font-bold">Ariel Yehouda SEA</h1>
+    <button id="menu-btn" aria-label="Menu" class="text-3xl focus:outline-none">
+      <i class="fas fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- Navigation latérale desktop & menu mobile -->
+  <aside
+    id="sidebar"
+    class="fixed top-0 left-0 h-full w-60 bg-starbucks text-white shadow-xl z-40 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col"
+  >
+    <div class="p-8 text-center border-b border-beige/20">
+      <img
+        src="https://picsum.photos/120"
+        alt="Ariel Yehouda SEA"
+        class="mx-auto rounded-full mb-4 border-4 border-beige shadow-lg"
+      />
+      <h1 class="text-2xl font-extrabold tracking-wide">Ariel Yehouda SEA</h1>
+      <p class="text-sm font-light mt-1 uppercase tracking-widest">Designer Graphique</p>
+    </div>
+    <nav class="mt-8 flex flex-col gap-5 px-8 text-lg font-medium tracking-wide">
+      <a
+        href="#about"
+        class="hover:text-beige transition-colors duration-300 relative before:absolute before:-bottom-1 before:left-0 before:w-full before:h-0.5 before:bg-beige before:scale-x-0 hover:before:scale-x-100 before:origin-left before:transition-transform"
+        >À propos</a
+      >
+      <a
+        href="#resume"
+        class="hover:text-beige transition-colors duration-300 relative before:absolute before:-bottom-1 before:left-0 before:w-full before:h-0.5 before:bg-beige before:scale-x-0 hover:before:scale-x-100 before:origin-left before:transition-transform"
+        >CV</a
+      >
+      <a
+        href="#portfolio"
+        class="hover:text-beige transition-colors duration-300 relative before:absolute before:-bottom-1 before:left-0 before:w-full before:h-0.5 before:bg-beige before:scale-x-0 hover:before:scale-x-100 before:origin-left before:transition-transform"
+        >Portfolio</a
+      >
+      <a
+        href="#testimonials"
+        class="hover:text-beige transition-colors duration-300 relative before:absolute before:-bottom-1 before:left-0 before:w-full before:h-0.5 before:bg-beige before:scale-x-0 hover:before:scale-x-100 before:origin-left before:transition-transform"
+        >Témoignages</a
+      >
+      <a
+        href="#contact"
+        class="hover:text-beige transition-colors duration-300 relative before:absolute before:-bottom-1 before:left-0 before:w-full before:h-0.5 before:bg-beige before:scale-x-0 hover:before:scale-x-100 before:origin-left before:transition-transform"
+        >Contact</a
+      >
+    </nav>
+    <div class="mt-auto p-8 text-center text-sm text-beige/70">
+      &copy; 2025 sea — Tous droits réservés
+    </div>
+  </aside>
+
+  <!-- Overlay for mobile menu -->
+  <div
+    id="overlay"
+    class="fixed inset-0 bg-black bg-opacity-50 hidden z-30 md:hidden"
+  ></div>
+
+  <!-- Contenu principal -->
+  <main
+    class="pt-20 md:pt-0 ml-0 md:ml-60 p-6 md:p-10 space-y-28 max-w-7xl mx-auto"
+  >
+    <!-- Accueil -->
+    <section
+      class="flex flex-col md:flex-row items-center gap-12"
+      aria-label="Présentation"
+    >
+      <div class="flex-1 animate-fadeInUp">
+        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight mb-4">
+          Salut ! Je suis
+          <span class="text-starbucks">Ariel Yehouda SEA</span>
+        </h2>
+        <p class="text-base md:text-lg text-darktext/90 max-w-xl leading-relaxed">
+          Designer graphique & photographe passionné par la création visuelle.
+          Je transforme vos idées en images impactantes et mémorables.
+        </p>
+        <a
+          href="#about"
+          class="inline-block mt-8 px-8 py-4 bg-starbucks text-white rounded-lg shadow-lg hover:bg-darktext transition duration-300 font-semibold tracking-wide hover:animate-pulseScale"
+          >Découvrir</a
+        >
+      </div>
+      <img
+        src="https://picsum.photos/350/450?grayscale&blur=2"
+        alt="Portrait Ariel Yehouda SEA"
+        class="rounded-3xl shadow-2xl border-8 border-beige hover:scale-105 hover:rotate-1 transition-transform duration-500 max-w-full md:max-w-none"
+        loading="lazy"
+        decoding="async"
+      />
+    </section>
+
+    <!-- À propos -->
+    <section
+      id="about"
+      class="animate-fadeInUpSlow"
+      aria-label="À propos de Ariel Yehouda SEA"
+    >
+      <h2
+        class="text-3xl md:text-4xl font-extrabold mb-8 border-b-4 border-starbucks inline-block pb-2"
+      >
+        À propos de moi
+      </h2>
+      <p
+        class="mb-8 max-w-4xl leading-relaxed text-base md:text-lg text-darktext/90"
+      >
+        Je suis un créatif avec plus de 15 ans d’expérience dans le design et la
+        photographie. J’ai eu le plaisir de collaborer avec plus de 200 clients
+        satisfaits sur plus de 350 projets variés allant du branding à la
+        photographie éditoriale.
+      </p>
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center bg-white rounded-xl shadow-lg p-6 md:p-8 max-w-4xl mx-auto"
+      >
+        <div>
+          <p class="text-4xl md:text-5xl font-extrabold text-starbucks">15+</p>
+          <p
+            class="mt-1 text-xs md:text-sm font-medium uppercase tracking-wider text-darktext/70"
+          >
+            Années d'expérience
+          </p>
+        </div>
+        <div>
+          <p class="text-4xl md:text-5xl font-extrabold text-starbucks">350+</p>
+          <p
+            class="mt-1 text-xs md:text-sm font-medium uppercase tracking-wider text-darktext/70"
+          >
+            Projets réalisés
+          </p>
+        </div>
+        <div>
+          <p class="text-4xl md:text-5xl font-extrabold text-starbucks">200+</p>
+          <p
+            class="mt-1 text-xs md:text-sm font-medium uppercase tracking-wider text-darktext/70"
+          >
+            Clients satisfaits
+          </p>
+        </div>
+        <div>
+          <p class="text-4xl md:text-5xl font-extrabold text-starbucks">45K</p>
+          <p
+            class="mt-1 text-xs md:text-sm font-medium uppercase tracking-wider text-darktext/70"
+          >
+            Téléchargements
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section
+      id="resume"
+      class="animate-fadeInUpSlow"
+      aria-label="CV de Ariel Yehouda SEA"
+    >
+      <h2
+        class="text-3xl md:text-4xl font-extrabold mb-8 border-b-4 border-starbucks inline-block pb-2"
+      >
+        CV
+      </h2>
+      <div
+        class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8"
+      >
+        <div>
+          <h3
+            class="text-xl md:text-2xl font-semibold mb-4 text-starbucks border-b border-starbucks/50 pb-2"
+          >
+            Expérience
+          </h3>
+          <ul class="space-y-3 text-darktext/90">
+            <li class="flex items-center gap-3">
+              <i class="fa fa-briefcase text-starbucks animate-bounceIcon"></i>
+              <span
+                ><strong>Senior Designer</strong> – Creative Studio (2015–présent)</span
+              >
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa fa-briefcase text-starbucks animate-bounceIcon"></i>
+              <span>Graphiste – Agence XYZ (2010–2015)</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3
+            class="text-xl md:text-2xl font-semibold mb-4 text-starbucks border-b border-starbucks/50 pb-2"
+          >
+            Éducation
+          </h3>
+          <ul class="space-y-3 text-darktext/90">
+            <li class="flex items-center gap-3">
+              <i class="fa fa-graduation-cap text-starbucks animate-bounceIcon"></i>
+              <span>Licence Design – Université Créative</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa fa-graduation-cap text-starbucks animate-bounceIcon"></i>
+              <span>Master Photographie – École d’Art</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section
+      id="portfolio"
+      class="animate-fadeInUpSlow"
+      aria-label="Portfolio de Ariel Yehouda SEA"
+    >
+      <h2
+        class="text-3xl md:text-4xl font-extrabold mb-8 border-b-4 border-starbucks inline-block pb-2"
+      >
+        Portfolio
+      </h2>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto"
+      >
+        <!-- Projet 1 -->
+        <div
+          class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+        >
+          <img
+            src="https://picsum.photos/400/300?1"
+            alt="Projet 1"
+            class="w-full h-52 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-2"
+            loading="lazy"
+            decoding="async"
+          />
+          <div
+            class="absolute inset-0 bg-starbucks bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-center px-4"
+          >
+            <p class="font-semibold text-lg">Projet 1 - Branding</p>
+          </div>
+        </div>
+
+        <!-- Projet 2 -->
+        <div
+          class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+        >
+          <img
+            src="https://picsum.photos/400/300?2"
+            alt="Projet 2"
+            class="w-full h-52 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-2"
+            loading="lazy"
+            decoding="async"
+          />
+          <div
+            class="absolute inset-0 bg-starbucks bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-center px-4"
+          >
+            <p class="font-semibold text-lg">Projet 2 - Photographie</p>
+          </div>
+        </div>
+
+        <!-- Projet 3 -->
+        <div
+          class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+        >
+          <img
+            src="https://picsum.photos/400/300?3"
+            alt="Projet 3"
+            class="w-full h-52 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
+            loading="lazy"
+            decoding="async"
+          />
+          <div
+            class="absolute inset-0 bg-starbucks bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-center px-4"
+          >
+            <p class="font-semibold text-lg">Projet 3 - Illustration</p>
+          </div>
+        </div>
+
+        <!-- Projet 4 -->
+        <div
+          class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+        >
+          <img
+            src="https://picsum.photos/400/300?4"
+            alt="Projet 4"
+            class="w-full h-52 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-1"
+            loading="lazy"
+            decoding="async"
+          />
+          <div
+            class="absolute inset-0 bg-starbucks bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-center px-4"
+          >
+            <p class="font-semibold text-lg">Projet 4 - Web Design</p>
+          </div>
+        </div>
+
+        <!-- Projet 5 -->
+        <div
+          class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+        >
+          <img
+            src="https://picsum.photos/400/300?5"
+            alt="Projet 5"
+            class="w-full h-52 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-2"
+            loading="lazy"
+            decoding="async"
+          />
+          <div
+            class="absolute inset-0 bg-starbucks bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-center px-4"
+          >
+            <p class="font-semibold text-lg">Projet 5 - Branding</p>
+          </div>
+        </div>
+
+        <!-- Projet 6 -->
+        <div
+          class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+        >
+          <img
+            src="https://picsum.photos/400/300?6"
+            alt="Projet 6"
+            class="w-full h-52 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-2"
+            loading="lazy"
+            decoding="async"
+          />
+          <div
+            class="absolute inset-0 bg-starbucks bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-center px-4"
+          >
+            <p class="font-semibold text-lg">Projet 6 - Photographie</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section
+      id="testimonials"
+      class="animate-fadeInUpSlow max-w-4xl mx-auto"
+      aria-label="Témoignages"
+    >
+      <h2
+        class="text-3xl md:text-4xl font-extrabold mb-8 border-b-4 border-starbucks inline-block pb-2"
+      >
+        Témoignages
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+        <blockquote
+          class="bg-white p-6 md:p-8 rounded-xl shadow-lg relative before:content-['“'] before:absolute before:-top-6 before:left-6 before:text-6xl before:text-starbucks/30"
+        >
+          <p
+            class="text-starbucks text-lg md:text-xl leading-relaxed font-medium animate-fadeInUp"
+          >
+            Excellent travail, très professionnel et rapide.
+          </p>
+          <footer class="mt-4 font-semibold text-darktext">– Claire, CEO</footer>
+        </blockquote>
+        <blockquote
+          class="bg-white p-6 md:p-8 rounded-xl shadow-lg relative before:content-['“'] before:absolute before:-top-6 before:left-6 before:text-6xl before:text-starbucks/30"
+        >
+          <p
+            class="text-starbucks text-lg md:text-xl leading-relaxed font-medium animate-fadeInUp"
+          >
+            Design parfait, je recommande sans hésitation !
+          </p>
+          <footer class="mt-4 font-semibold text-darktext">– Marc, Directeur Créatif</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Contact (exemple simple) -->
+    <section
+      id="contact"
+      class="animate-fadeInUpSlow max-w-4xl mx-auto"
+      aria-label="Contactez Ariel Yehouda SEA"
+    >
+      <h2
+        class="text-3xl md:text-4xl font-extrabold mb-8 border-b-4 border-starbucks inline-block pb-2"
+      >
+        Contact
+      </h2>
+      <form
+        action="#"
+        class="bg-white p-6 md:p-8 rounded-xl shadow-lg space-y-6"
+      >
+        <div>
+          <label for="name" class="block mb-2 font-semibold text-darktext"
+            >Nom complet</label
+          >
+          <input
+            id="name"
+            type="text"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-starbucks"
+          />
+        </div>
+        <div>
+          <label for="email" class="block mb-2 font-semibold text-darktext"
+            >Email</label
+          >
+          <input
+            id="email"
+            type="email"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-starbucks"
+          />
+        </div>
+        <div>
+          <label for="message" class="block mb-2 font-semibold text-darktext"
+            >Message</label
+          >
+          <textarea
+            id="message"
+            rows="4"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-starbucks"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="bg-starbucks text-white px-6 py-3 rounded-lg font-semibold tracking-wide hover:bg-darktext transition-colors duration-300"
+        >
+          Envoyer
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    menuBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('hidden');
+    });
+  </script>
+</body>
+</html>
