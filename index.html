@@ -6,14 +6,57 @@
   <title>Portfolio – Ariel Yehouda SEA</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    // --- PALETTES DE COULEURS ADAPTÉES POUR LA LISIBILITÉ ---
+    const colors = [
+      // Palette 1: Basée sur le design Starbucks (originale et lisible)
+      {
+        primary: '#00754a',   // Vert Starbucks (accents, titres, boutons)
+        secondary: '#d4e9e2', // Vert très clair (fond principal)
+        dark: '#1e3932',      // Vert très foncé/texte (texte principal)
+        accent: '#f3f1e7'     // Beige/Crème (bordures, éléments secondaires clairs)
+      },
+      // Palette 2: Basée sur "Home & Interiors" (ajustée pour lisibilité)
+      {
+        primary: '#3a3d46',   // Gris foncé (accents, titres, boutons)
+        secondary: '#ebebeb', // Gris très clair (fond principal)
+        dark: '#1a1a1a',      // Noir (texte principal)
+        accent: '#ee7a5a'     // Orange terre de Sienne (bordures, éléments secondaires)
+      },
+      // Palette 3: Basée sur "Portfolio 2025 - Graphic Designer" (ajustée pour lisibilité)
+      {
+        primary: '#ff6600',   // Orange vif (accents, titres, boutons)
+        secondary: '#e8e8e8', // Gris très clair (fond principal)
+        dark: '#1a1a1a',      // Noir (texte principal)
+        accent: '#f78c6b'     // Orange plus doux (bordures, éléments secondaires)
+      },
+      // Palette 4: Basée sur "Puppet-Bilder" (ajustée pour lisibilité)
+      {
+        primary: '#ffc107',   // Jaune-orange chaud (accents, titres, boutons)
+        secondary: '#f5f5dc', // Beige clair (fond principal)
+        dark: '#333333',      // Gris foncé (texte principal)
+        accent: '#e67e22'     // Orange plus soutenu (bordures, éléments secondaires)
+      },
+      // Palette 5: Basée sur les couleurs du drapeau de la Côte d'Ivoire (ajustée pour lisibilité)
+      {
+        primary: '#FF8200',   // Orange du drapeau (accents, titres, boutons)
+        secondary: '#FFFFFF', // Blanc (fond principal)
+        dark: '#1a1a1a',      // Noir (texte principal, pour contraster avec le fond blanc)
+        accent: '#009E44'     // Vert du drapeau (bordures, éléments secondaires)
+      }
+    ];
+
+    // Sélectionnez une palette de couleurs aléatoire
+    const randomColorSet = colors[Math.floor(Math.random() * colors.length)];
+
+    // Mettez à jour la configuration Tailwind CSS avec les couleurs aléatoires
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            starbucks: '#00754a',
-            lightgreen: '#d4e9e2',
-            darktext: '#1e3932',
-            beige: '#f3f1e7',
+            starbucks: randomColorSet.primary,
+            lightgreen: randomColorSet.secondary,
+            darktext: randomColorSet.dark,
+            beige: randomColorSet.accent,
           },
           fontFamily: {
             sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
@@ -62,7 +105,6 @@
 </head>
 <body class="bg-lightgreen text-darktext font-sans">
 
-  <!-- Navigation mobile -->
   <header class="bg-starbucks text-white fixed top-0 left-0 right-0 z-30 md:hidden flex justify-between items-center p-4 shadow-lg">
     <h1 class="text-xl font-bold">Ariel Yehouda SEA</h1>
     <button id="menu-btn" aria-label="Menu" class="text-3xl focus:outline-none">
@@ -70,25 +112,39 @@
     </button>
   </header>
 
-  <!-- Navigation latérale desktop & menu mobile -->
   <aside
     id="sidebar"
     class="fixed top-0 left-0 h-full w-60 bg-starbucks text-white shadow-xl z-40 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col"
   >
-    <div class="p-8 text-center border-b border-beige/20">
+    <div class="p-8 border-b border-beige/20">
       <img
         src="https://picsum.photos/120"
         alt="Ariel Yehouda SEA"
         class="mx-auto rounded-full mb-4 border-4 border-beige shadow-lg"
       />
-      <h1 class="text-2xl font-extrabold tracking-wide">Ariel Yehouda SEA</h1>
-      <p class="text-sm font-light mt-1 uppercase tracking-widest">Designer Graphique</p>
+      <h1 class="text-2xl font-extrabold tracking-wide text-center">sea ariel.y</h1>
+      <p class="text-sm font-light mt-1 uppercase tracking-widest text-left px-8">Designer Graphique</p>
     </div>
     <nav class="mt-8 flex flex-col gap-5 px-8 text-lg font-medium tracking-wide">
       <a
         href="#about"
         class="hover:text-beige transition-colors duration-300 relative before:absolute before:-bottom-1 before:left-0 before:w-full before:h-0.5 before:bg-beige before:scale-x-0 hover:before:scale-x-100 before:origin-left before:transition-transform"
         >À propos</a
+      >
+      <a
+        href="#services"
+        class="hover:text-beige transition-colors duration-300 relative before:absolute before:-bottom-1 before:left-0 before:w-full before:h-0.5 before:bg-beige before:scale-x-0 hover:before:scale-x-100 before:origin-left before:transition-transform"
+        >Services</a
+      >
+      <a
+        href="#process"
+        class="hover:text-beige transition-colors duration-300 relative before:absolute before:-bottom-1 before:left-0 before:w-full before:h-0.5 before:bg-beige before:scale-x-0 hover:before:scale-x-100 before:origin-left before:transition-transform"
+        >Processus</a
+      >
+      <a
+        href="#skills"
+        class="hover:text-beige transition-colors duration-300 relative before:absolute before:-bottom-1 before:left-0 before:w-full before:h-0.5 before:bg-beige before:scale-x-0 hover:before:scale-x-100 before:origin-left before:transition-transform"
+        >Compétences</a
       >
       <a
         href="#resume"
@@ -106,27 +162,26 @@
         >Témoignages</a
       >
       <a
+        href="#collaborations"
+        class="hover:text-beige transition-colors duration-300 relative before:absolute before:-bottom-1 before:left-0 before:w-full before:h-0.5 before:bg-beige before:scale-x-0 hover:before:scale-x-100 before:origin-left before:transition-transform"
+        >Collaborations</a
+      >
+      <a
         href="#contact"
         class="hover:text-beige transition-colors duration-300 relative before:absolute before:-bottom-1 before:left-0 before:w-full before:h-0.5 before:bg-beige before:scale-x-0 hover:before:scale-x-100 before:origin-left before:transition-transform"
         >Contact</a
       >
     </nav>
-    <div class="mt-auto p-8 text-center text-sm text-beige/70">
-      &copy; 2025 sea — Tous droits réservés
-    </div>
   </aside>
 
-  <!-- Overlay for mobile menu -->
   <div
     id="overlay"
     class="fixed inset-0 bg-black bg-opacity-50 hidden z-30 md:hidden"
   ></div>
 
-  <!-- Contenu principal -->
   <main
     class="pt-20 md:pt-0 ml-0 md:ml-60 p-6 md:p-10 space-y-28 max-w-7xl mx-auto"
   >
-    <!-- Accueil -->
     <section
       class="flex flex-col md:flex-row items-center gap-12"
       aria-label="Présentation"
@@ -146,16 +201,21 @@
           >Découvrir</a
         >
       </div>
-      <img
-        src="https://picsum.photos/350/450?grayscale&blur=2"
-        alt="Portrait Ariel Yehouda SEA"
-        class="rounded-3xl shadow-2xl border-8 border-beige hover:scale-105 hover:rotate-1 transition-transform duration-500 max-w-full md:max-w-none"
-        loading="lazy"
-        decoding="async"
-      />
+      <div class="relative w-full md:w-auto flex-1 max-w-full md:max-w-md aspect-video rounded-3xl shadow-2xl border-8 border-beige overflow-hidden">
+        <iframe
+          src="https://www.youtube.com/embed/LXb3EKWsInQ?autoplay=1&mute=1&loop=1&playlist=LXb3EKWsInQ"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          class="absolute top-0 left-0 w-full h-full object-cover"
+          title="Exemple de vidéo 3D - Floating Shapes Animation"
+        ></iframe>
+      </div>
     </section>
 
-    <!-- À propos -->
+    ---
+
     <section
       id="about"
       class="animate-fadeInUpSlow"
@@ -212,7 +272,194 @@
       </div>
     </section>
 
-    <!-- CV -->
+    ---
+
+    <section
+      id="services"
+      class="animate-fadeInUpSlow max-w-5xl mx-auto"
+      aria-label="Mes Services"
+    >
+      <h2
+        class="text-3xl md:text-4xl font-extrabold mb-8 border-b-4 border-starbucks inline-block pb-2"
+      >
+        Mes Services
+      </h2>
+      <p class="mb-10 text-base md:text-lg text-darktext/90 max-w-4xl leading-relaxed">
+        Je vous accompagne dans la concrétisation de vos idées avec une approche créative et professionnelle, du concept à la réalisation.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center">
+          <i class="fas fa-palette text-5xl text-starbucks mb-4"></i>
+          <h3 class="text-xl font-bold mb-2 text-darktext">Branding & Identité Visuelle</h3>
+          <p class="text-sm text-darktext/80">Création de logos percutants, chartes graphiques complètes et identités de marque mémorables.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center">
+          <i class="fas fa-laptop-code text-5xl text-starbucks mb-4"></i>
+          <h3 class="text-xl font-bold mb-2 text-darktext">Design Web & UI/UX</h3>
+          <p class="text-sm text-darktext/80">Conception d'interfaces intuitives et de sites web esthétiques et fonctionnels.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center">
+          <i class="fas fa-camera-retro text-5xl text-starbucks mb-4"></i>
+          <h3 class="text-xl font-bold mb-2 text-darktext">Photographie Professionnelle</h3>
+          <p class="text-sm text-darktext/80">Séances photo pour produits, portraits, événements, avec retouche experte.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center">
+          <i class="fas fa-pencil-ruler text-5xl text-starbucks mb-4"></i>
+          <h3 class="text-xl font-bold mb-2 text-darktext">Illustration & Infographie</h3>
+          <p class="text-sm text-darktext/80">Réalisation d'illustrations personnalisées et d'infographies claires.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center">
+          <i class="fas fa-print text-5xl text-starbucks mb-4"></i>
+          <h3 class="text-xl font-bold mb-2 text-darktext">Design Print & Éditorial</h3>
+          <p class="text-sm text-darktext/80">Conception de supports imprimés (brochures, affiches, magazines) et de mises en page éditoriales.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center">
+          <i class="fas fa-video text-5xl text-starbucks mb-4"></i>
+          <h3 class="text-xl font-bold mb-2 text-darktext">Motion Design & Animation</h3>
+          <p class="text-sm text-darktext/80">Création de courtes animations, intros/outros vidéo et éléments de motion design.</p>
+        </div>
+      </div>
+    </section>
+
+    ---
+
+    <section
+      id="process"
+      class="animate-fadeInUpSlow max-w-5xl mx-auto"
+      aria-label="Mon Processus de Travail"
+    >
+      <h2
+        class="text-3xl md:text-4xl font-extrabold mb-8 border-b-4 border-starbucks inline-block pb-2"
+      >
+        Mon Processus de Travail
+      </h2>
+      <p class="mb-10 text-base md:text-lg text-darktext/90 max-w-4xl leading-relaxed">
+        Chaque projet est une aventure. Voici comment nous collaborons pour atteindre vos objectifs créatifs :
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:grid-cols-4">
+        <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center">
+          <div class="bg-starbucks text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl font-bold mb-4">1</div>
+          <h3 class="text-xl font-bold mb-2 text-darktext">Découverte & Brief</h3>
+          <p class="text-sm text-darktext/80">Comprendre vos besoins, vos objectifs et votre vision. C'est là que tout commence !</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center">
+          <div class="bg-starbucks text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl font-bold mb-4">2</div>
+          <h3 class="text-xl font-bold mb-2 text-darktext">Conception & Création</h3>
+          <p class="text-sm text-darktext/80">Développement des concepts, esquisses, premières maquettes et propositions créatives.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center">
+          <div class="bg-starbucks text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl font-bold mb-4">3</div>
+          <h3 class="text-xl font-bold mb-2 text-darktext">Feedback & Révisions</h3>
+          <p class="text-sm text-darktext/80">Présentation des propositions, recueil de vos retours et ajustements pour affiner le projet.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center">
+          <div class="bg-starbucks text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl font-bold mb-4">4</div>
+          <h3 class="text-xl font-bold mb-2 text-darktext">Validation & Livraison</h3>
+          <p class="text-sm text-darktext/80">Validation finale du design et livraison des fichiers prêts à l'emploi selon vos besoins.</p>
+        </div>
+      </div>
+    </section>
+
+    ---
+
+    <section
+      id="skills"
+      class="animate-fadeInUpSlow max-w-5xl mx-auto"
+      aria-label="Mes Compétences"
+    >
+      <h2
+        class="text-3xl md:text-4xl font-extrabold mb-8 border-b-4 border-starbucks inline-block pb-2"
+      >
+        Mes Compétences
+      </h2>
+      <p class="mb-10 text-base md:text-lg text-darktext/90 max-w-4xl leading-relaxed">
+        Maîtrise des outils leaders du marché et solides compétences en principes fondamentaux du design.
+      </p>
+      <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+        <h3 class="text-xl font-bold mb-4 text-darktext">Logiciels</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-8">
+          <div class="flex flex-col items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Logo Photoshop" class="h-12 w-12 object-contain mb-2" />
+            <span class="text-sm font-semibold text-darktext">Photoshop</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Logo Illustrator" class="h-12 w-12 object-contain mb-2" />
+            <span class="text-sm font-semibold text-darktext">Illustrator</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg" alt="Logo InDesign" class="h-12 w-12 object-contain mb-2" />
+            <span class="text-sm font-semibold text-darktext">InDesign</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://drive.google.com/uc?export=view&id=1FukOIJlK-06Qjf-J561odFoLEUFXayDZ" alt="Logo Lightroom" class="h-12 w-12 object-contain mb-2" />
+            <span class="text-sm font-semibold text-darktext">Lightroom</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg" alt="Logo Blender" class="h-12 w-12 object-contain mb-2" />
+            <span class="text-sm font-semibold text-darktext">Blender</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://drive.google.com/uc?export=view&id=1fthTGa7DzAiXRdbchNBRGTFhdzFu5emi" alt="Logo Canva" class="h-12 w-12 object-contain mb-2" />
+            <span class="text-sm font-semibold text-darktext">Canva</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://drive.google.com/uc?export=view&id=1JSyhh-ppi0b9bj6n5sTK7G4cRfFgkoDp" alt="Logo Substance Painter" class="h-12 w-12 object-contain mb-2" />
+            <span class="text-sm font-semibold text-darktext">Substance Painter</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Logo Premiere Pro" class="h-12 w-12 object-contain mb-2" />
+            <span class="text-sm font-semibold text-darktext">Premiere Pro</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" alt="Logo After Effects" class="h-12 w-12 object-contain mb-2" />
+            <span class="text-sm font-semibold text-darktext">After Effects</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://drive.google.com/uc?export=view&id=15ZtgATDyx1BEJFV2mU21txyeAPPNPg4N" alt="Logo Maya" class="h-12 w-12 object-contain mb-2" />
+            <span class="text-sm font-semibold text-darktext">Maya</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://drive.google.com/uc?export=view&id=1QcPpQjWy3LvC7pgPEphJWIi6S1ZZqzac" alt="Logo 3ds Max" class="h-12 w-12 object-contain mb-2" />
+            <span class="text-sm font-semibold text-darktext">3ds Max</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://drive.google.com/uc?export=view&id=11jhQv4mlwJdc0M71OKDH04EuifT2tUSk" alt="Logo Cinema 4D" class="h-12 w-12 object-contain mb-2" />
+            <span class="text-sm font-semibold text-darktext">Cinema 4D</span>
+          </div>
+        </div>
+
+        <h3 class="text-xl font-bold mb-4 text-darktext">Compétences Générales</h3>
+        <ul class="list-disc list-inside space-y-2 text-darktext/90">
+          <li class="flex items-center">
+            <i class="fas fa-check-circle text-starbucks mr-2"></i>
+            <span>Créativité & Innovation</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-check-circle text-starbucks mr-2"></i>
+            <span>Gestion de Projet & Délais</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-check-circle text-starbucks mr-2"></i>
+            <span>Communication & Écoute Client</span>
+           </li>
+          <li class="flex items-center">
+            <i class="fas fa-check-circle text-starbucks mr-2"></i>
+            <span>Typographie & Composition</span>
+           </li>
+          <li class="flex items-center">
+            <i class="fas fa-check-circle text-starbucks mr-2"></i>
+            <span>Théorie des Couleurs</span>
+           </li>
+          <li class="flex items-center">
+            <i class="fas fa-check-circle text-starbucks mr-2"></i>
+            <span>Résolution de Problèmes</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    ---
+
     <section
       id="resume"
       class="animate-fadeInUpSlow"
@@ -235,9 +482,7 @@
           <ul class="space-y-3 text-darktext/90">
             <li class="flex items-center gap-3">
               <i class="fa fa-briefcase text-starbucks animate-bounceIcon"></i>
-              <span
-                ><strong>Senior Designer</strong> – Creative Studio (2015–présent)</span
-              >
+              <span><strong>Senior Designer</strong> – Creative Studio (2015–présent)</span>
             </li>
             <li class="flex items-center gap-3">
               <i class="fa fa-briefcase text-starbucks animate-bounceIcon"></i>
@@ -265,7 +510,6 @@
       </div>
     </section>
 
-    <!-- Portfolio -->
     <section
       id="portfolio"
       class="animate-fadeInUpSlow"
@@ -279,7 +523,6 @@
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto"
       >
-        <!-- Projet 1 -->
         <div
           class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition-shadow duration-300"
         >
@@ -297,7 +540,6 @@
           </div>
         </div>
 
-        <!-- Projet 2 -->
         <div
           class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition-shadow duration-300"
         >
@@ -315,7 +557,6 @@
           </div>
         </div>
 
-        <!-- Projet 3 -->
         <div
           class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition-shadow duration-300"
         >
@@ -333,7 +574,6 @@
           </div>
         </div>
 
-        <!-- Projet 4 -->
         <div
           class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition-shadow duration-300"
         >
@@ -351,7 +591,6 @@
           </div>
         </div>
 
-        <!-- Projet 5 -->
         <div
           class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition-shadow duration-300"
         >
@@ -369,7 +608,6 @@
           </div>
         </div>
 
-        <!-- Projet 6 -->
         <div
           class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition-shadow duration-300"
         >
@@ -389,7 +627,8 @@
       </div>
     </section>
 
-    <!-- Témoignages -->
+    ---
+
     <section
       id="testimonials"
       class="animate-fadeInUpSlow max-w-4xl mx-auto"
@@ -424,7 +663,51 @@
       </div>
     </section>
 
-    <!-- Contact (exemple simple) -->
+    ---
+
+    <section
+      id="collaborations"
+      class="animate-fadeInUpSlow max-w-5xl mx-auto"
+      aria-label="Nos collaborations"
+    >
+      <h2
+        class="text-3xl md:text-4xl font-extrabold mb-8 border-b-4 border-starbucks inline-block pb-2"
+      >
+        Collaborations
+      </h2>
+      <p class="mb-8 text-base md:text-lg text-darktext/90 max-w-4xl leading-relaxed">
+        J'ai eu le privilège de collaborer avec diverses entreprises et organisations, contribuant à leurs succès visuels.
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 justify-items-center items-center p-6 bg-white rounded-xl shadow-lg">
+        <div class="p-3 bg-lightgreen rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+          <img src="https://picsum.photos/100/50?random=1" alt="Logo Collaboration 1" class="h-12 object-contain" />
+        </div>
+        <div class="p-3 bg-lightgreen rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+          <img src="https://picsum.photos/100/50?random=2" alt="Logo Collaboration 2" class="h-12 object-contain" />
+        </div>
+        <div class="p-3 bg-lightgreen rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+          <img src="https://picsum.photos/100/50?random=3" alt="Logo Collaboration 3" class="h-12 object-contain" />
+        </div>
+        <div class="p-3 bg-lightgreen rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+          <img src="https://picsum.photos/100/50?random=4" alt="Logo Collaboration 4" class="h-12 object-contain" />
+        </div>
+        <div class="p-3 bg-lightgreen rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+          <img src="https://picsum.photos/100/50?random=5" alt="Logo Collaboration 5" class="h-12 object-contain" />
+        </div>
+        <div class="p-3 bg-lightgreen rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+          <img src="https://picsum.photos/100/50?random=6" alt="Logo Collaboration 6" class="h-12 object-contain" />
+        </div>
+        <div class="p-3 bg-lightgreen rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+          <img src="https://picsum.photos/100/50?random=7" alt="Logo Collaboration 7" class="h-12 object-contain" />
+        </div>
+        <div class="p-3 bg-lightgreen rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+          <img src="https://picsum.photos/100/50?random=8" alt="Logo Collaboration 8" class="h-12 object-contain" />
+        </div>
+      </div>
+    </section>
+
+    ---
+
     <section
       id="contact"
       class="animate-fadeInUpSlow max-w-4xl mx-auto"
@@ -472,20 +755,43 @@
             class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-starbucks"
           ></textarea>
         </div>
-        <button
-          type="submit"
-          class="bg-starbucks text-white px-6 py-3 rounded-lg font-semibold tracking-wide hover:bg-darktext transition-colors duration-300"
-        >
-          Envoyer
-        </button>
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-6">
+          <button
+            type="submit"
+            class="bg-starbucks text-white px-6 py-3 rounded-lg font-semibold tracking-wide hover:bg-darktext transition-colors duration-300"
+          >
+            Envoyer
+          </button>
+          <div class="text-xs text-darktext/70 text-center sm:text-right">
+            © 2025 ariel sea — web site
+          </div>
+        </div>
       </form>
     </section>
+
   </main>
 
   <script>
     const menuBtn = document.getElementById('menu-btn');
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('overlay');
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // Close sidebar on mobile after clicking a link
+            if (!sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        });
+    });
 
     menuBtn.addEventListener('click', () => {
       sidebar.classList.toggle('-translate-x-full');
